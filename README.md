@@ -9,6 +9,9 @@
   <img width="200" height="200" title="Poco Logo" src="https://raw.githubusercontent.com/shiwaforce/poco/master/logo.svg?sanitize=true"/>
 </p>
 
+**THIS IS THE LIGHTWEIGHT VERSION OF [POCO](https://pypi.python.org/pypi/poco).**
+
+
 **Poco** helps to organise and manage Docker, Docker-Compose, Kubernetes projects of any complexity using simple YAML config files to shorten the route from finding your project to initialising it in your local environment.
 
 - **Simple**. Configure, run and switch between projects with a very simple command line interface.     
