@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=1150314f608881da1441a004463b90348ac128104942e6cecc23f3d2e8cc49b1
+  - CC_TEST_REPORTER_ID=1150314f608881da1441a004463b90348ac128104942e6cecc23f3d2e8cc49b1
 language: python
 python:
 - '2.7'
@@ -8,20 +8,21 @@ python:
 - '3.5'
 - '3.6'
 install:
-- "pip install -r requirements.txt"
+- pip install -r requirements.txt
 before_script:
-  - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
-  - "chmod +x ./cc-test-reporter"
-  - "./cc-test-reporter before-build"
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-- "py.test --cov poco_ops --cov-report=xml"
+- py.test --cov poco_ops --cov-report=xml
 after_script:
-  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 deploy:
   provider: pypi
   user: swf.operations
   password:
-    secure: cwS9IQ1F2NrHWtFG2otSS06zwUYUpASu6gwHexomAnS2p8boOBlT1/VGfihY9YnE8fd6G/9lo91Nqz0a0e4PGAXLzgXvEnPitVKTi5OzYrYAB6zHw1QCLeEAfD/FKOFhUW4jx05zYA5G2xTvrk+72vReASnfVFk7sz0iYhCdkkY4nB+qBacIKZIInhI7fgReU91DT05Tn92gPAXnUPQSh2HO0FTpAGgp0FCiH+ADSEFUhJkeKqz9W8QoCCqjsQFB0ye8li4JC50pE2KcL0uUyL7llJQ7ar4+ox8Yo4nzxQ8SnKVVDyGdKMyuDWCqUIJ2G31kprezQvzHTC5QRgxWGvjMRz7sBUnKEzirc5YV4kiCtGLbkQdhDifBkj/Psz5OVmDjvS6IfodkyLST5Xr7tBd341nXstUoBP08ZD5VzyxfMS+wYjf+p00NsAxa7Xwamd1lfEWd9g1VyuRL6z1XgXorYUn4uoMYRXgggP8XlusLaeShylvYV2LUL3FQmSKabn5LttT+ne+bSs+l39Wr3j/1mrKni0Ms/EPQTbgA88UMHj+HvVu8X8dPAc5vFfuPjnUhPD5hg9tWjuzYzrdl8WvtvVUdFX2UbQCFno5ueHad5ponmFcODiVLLUGfjHrqj4UPh5coO2mmKAHmwA0qGHgRMGs/dDmtdiTll9QWbuI=
+    secure: f2wCvmr5yyN0PoP+ILllAJKZs3JKzp8MH06PuP/mjHXno05jNjL6NvF1tvxK0epHviDK+ZbiimeuqxMNr0YPUjq3ZYeysI8yvvk0QyUam3T59e/yr0Nt2kWg3qR+BmvZJB3lB+C5//hdZYI+vsMYtlLyIikVcvB8g8D76HIycpPgdLf7upb+8A6qRncGQgfxXIzUSBwmPweomDJB986RYaN6vfs4gON6bUaysljkq8wTyW2CBhpktjPOnTZkJRb8zcuRpBBwTwM0z71jwJJrGj2KWk/hj+X8039iVudaP1OEwhSF39oZegIkinI5xWIQaJ+YAmCdsjowd70zpjJkczMvH3JV3VAKE91uHwA/JAeySphyzznZ971hXFx/BjvCQhXpMvG2w52Ngiuos3GuavcFbTQhaEZ6lIHPtPBECGUK+pVefpuDYju0sq0Z+cWnFFFysRs2cjTkNb0luKiNREu6UO7cPUt23Ii3F9+lC2+NknNgMXxuGNfP/KORoaQLvRQ8vpPpWgn6/tVOEqb+Zn4gmHhdGyj/sJ1pExaIU0rG8Ajd1gPgBWJrZi5r7cQS83jwxmhWPLVrnTvmN1hOdh75j5/E1ZsYtp+b6X+8wBcp1ryC05E4cLUweX2eIK3uSAs8rxce55Gmn0mY/pNIKx1gAeCDjRIMDj+oordVkTM=
   on:
     branch: master
     tags: true
