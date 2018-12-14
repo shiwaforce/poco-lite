@@ -1,5 +1,4 @@
 import unittest
-import copy
 import os
 import sys
 import shutil

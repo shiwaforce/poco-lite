@@ -1,6 +1,3 @@
-import git
-import os
-import yaml
 import poco_lite.poco as poco
 from .abstract_test import AbstractTestSuite
 from ..services.file_utils import FileUtils
