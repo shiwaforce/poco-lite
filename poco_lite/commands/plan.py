@@ -2,7 +2,6 @@ import os
 from .start import Start
 from ..services.state_utils import StateUtils
 from ..services.state import StateHolder
-from ..services.console_logger import ColorPrint
 from ..services.file_utils import FileUtils
 from ..services.compose_handler import ComposeHandler
 
@@ -17,12 +16,9 @@ class Plan(Start):
 
     def prepare_states(self):
         StateHolder.name = FileUtils.get_parameter_or_directory_name('<name>')
-        StateHolder.work_dir = StateHolder.base_work_dir
         StateUtils.prepare("project_file")
 
     def resolve_dependencies(self):
-        if not StateUtils.check_variable('repository') and StateHolder.name != FileUtils.get_directory_name():
-            ColorPrint.exit_after_print_messages(message="Repository not found for: " + str(StateHolder.name))
         self.check_poco_file()
 
     def execute(self):

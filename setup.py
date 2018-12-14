@@ -3,12 +3,32 @@ import poco_lite
 import sys
 import platform
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
 
 requires = ['pyaml==16.12.2', 'docopt==0.6.2', 'docker-compose>=1.11.2']
+test_requires = ['pytest==3.1.2', 'pytest-cov==2.5.1']
+
+if sys.version_info[0] < 3:
+    test_requires.append('SystemIO>=1.1')
+    test_requires.append('mock')
 
 if platform.system() == "Darwin" and sys.version_info[0] == 3:
     requires.append("certifi>=2017.4.17")
     requires.append("Scrapy >= 1.4.0")
+
+
+class PyTestCommand(TestCommand):
+    """ Command to run unit py.test unit tests
+    """
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = ['--verbose', '--cov', 'poco_lite']
+        self.test_suite = True
+
+    def run(self):
+        import pytest
+        rcode = pytest.main(self.test_args)
+        sys.exit(rcode)
 
 setup_options = dict(
     name='poco-lite',
@@ -19,7 +39,9 @@ setup_options = dict(
     long_description_content_type="text/markdown",
     author='Shiwaforce.com',
     url='https://www.shiwaforce.com',
-    packages=find_packages(),
+    tests_require=test_requires,
+    cmdclass={'test': PyTestCommand},
+    packages=find_packages(exclude=['tests*']),
     package_data={'': ['poco.yml',
                        'docker-compose.yml',
                        'command-hierarchy.yml'
