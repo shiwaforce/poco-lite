@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import poco_lite
+import poco_ops
 import sys
 import platform
 from setuptools import setup, find_packages
@@ -22,7 +22,7 @@ class PyTestCommand(TestCommand):
     """
     def finalize_options(self):
         TestCommand.finalize_options(self)
-        self.test_args = ['--verbose', '--cov', 'poco_lite']
+        self.test_args = ['--verbose', '--cov', 'poco_ops']
         self.test_suite = True
 
     def run(self):
@@ -31,8 +31,8 @@ class PyTestCommand(TestCommand):
         sys.exit(rcode)
 
 setup_options = dict(
-    name='poco-lite',
-    version=poco_lite.__version__,
+    name='poco-ops',
+    version=poco_ops.__version__,
     description='poco lets you catalogue and manage your Docker projects using simple YAML files to shorten the route '
                 'from finding your project to initialising it in your environment.',
     long_description=open('README.md').read(),
@@ -49,7 +49,7 @@ setup_options = dict(
     include_package_data=True,
     install_requires=requires,
     entry_points={
-      'console_scripts': ['poco=poco_lite.poco:main'],
+      'console_scripts': ['poco=poco_ops.poco:main'],
     },
     license="Apache License 2.0",
     classifiers=(
@@ -68,5 +68,4 @@ setup_options = dict(
     ),
 )
 
-print(sys.argv)
 setup(**setup_options)

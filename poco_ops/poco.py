@@ -185,10 +185,10 @@ class Poco(object):
 
     def collect_commands(self):
         try:
-            command_packages = importlib.import_module('poco_lite.commands', package='poco_lite')
+            command_packages = importlib.import_module('poco_ops.commands', package='poco_ops')
             for importer, modname, ispkg in pkgutil.iter_modules(command_packages.__path__):
                 if not ispkg:
-                    mod = importlib.import_module('poco_lite.commands.' + modname, 'poco_lite')
+                    mod = importlib.import_module('poco_ops.commands.' + modname, 'poco_ops')
                     for name, cls in inspect.getmembers(mod,
                                                         lambda member: inspect.isclass(member) and
                                                         member.__module__ == mod.__name__):

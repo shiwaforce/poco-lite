@@ -1,4 +1,4 @@
-import poco_lite.poco as poco
+import poco_ops.poco as poco
 from .abstract_test import AbstractTestSuite
 from ..services.file_utils import FileUtils
 

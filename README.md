@@ -1,7 +1,7 @@
-# POCO-LITE
-[![Build Status](https://travis-ci.org/shiwaforce/poco-lite.svg?branch=master)](https://travis-ci.org/shiwaforce/poco-lite)
-[![pypi](https://img.shields.io/pypi/v/poco-lite.svg)](https://pypi.python.org/pypi/poco-lite)
-[![pypi](https://img.shields.io/pypi/pyversions/poco-lite.svg)](https://pypi.python.org/pypi/poco-lite)
+# POCO-OPS
+[![Build Status](https://travis-ci.org/shiwaforce/poco-ops.svg?branch=master)](https://travis-ci.org/shiwaforce/poco-ops)
+[![pypi](https://img.shields.io/pypi/v/poco-ops.svg)](https://pypi.python.org/pypi/poco-ops)
+[![pypi](https://img.shields.io/pypi/pyversions/poco-ops.svg)](https://pypi.python.org/pypi/poco-ops)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/4e624a36306d3807572c/test_coverage)](https://codeclimate.com/github/shiwaforce/poco-lite/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/4e624a36306d3807572c/maintainability)](https://codeclimate.com/github/shiwaforce/poco-lite/maintainability)
 
