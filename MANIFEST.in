@@ -1,0 +1,5 @@
+include README.rst
+include LICENCE
+recursive-include poco_ops docker-compose.yml
+recursive-include poco_ops poco.yml
+recursive-include poco_ops command-hierarchy.yml
