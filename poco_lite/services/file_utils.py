@@ -1,4 +1,3 @@
-import git
 import os
 import yaml
 import stat
@@ -34,19 +33,6 @@ class FileUtils:
     @staticmethod
     def get_relative_path(base_path, target_path):
         return os.path.relpath(path=target_path, start=os.path.commonprefix([target_path, base_path])) + "/"
-
-    @staticmethod
-    def get_git_repo(base_dir):
-        if not os.path.isdir(base_dir):
-            ColorPrint.exit_after_print_messages(message="Target directory is not a valid git repository: " + base_dir)
-        try:
-            repo = git.Repo(base_dir)
-            return repo, base_dir
-        except git.exc.InvalidGitRepositoryError as exc:
-            if base_dir == os.path.dirname(base_dir):
-                ColorPrint.exit_after_print_messages(message="Target directory or parents are"
-                                                             " not a valid git repository")
-            return FileUtils.get_git_repo(os.path.dirname(base_dir))
 
     @staticmethod
     def get_compose_file_relative_path(repo_dir, working_directory, file_name):
